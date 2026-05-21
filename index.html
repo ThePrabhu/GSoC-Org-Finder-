@@ -501,10 +501,10 @@
         class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 text-white text-xs font-bold hover:bg-zinc-700 transition-colors">
     
         <span class="material-symbols-outlined text-sm">
-          star
+          save
         </span>
     
-        Star & Contribute
+        Save & Contribute
       </a>
     
     </div>
@@ -567,7 +567,7 @@
     
     <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-zinc-100">
       <a href="https://github.com/S3DFX-CYBER/GSoC-Org-Finder-" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg bg-zinc-900 text-white text-sm font-bold hover:bg-zinc-700 transition-colors">
-        <span class="material-symbols-outlined text-base">star</span> Star & Contribute
+        <span class="material-symbols-outlined text-base">save</span> Save & Contribute
       </a>
     </div>
   </nav>
@@ -642,7 +642,7 @@
     <button id="chip-hot" class="filter-chip px-4 py-2 rounded-full bg-surface-container-highest text-xs font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm">local_fire_department</span> High Competition</button>
     <button id="chip-chill" class="filter-chip px-4 py-2 rounded-full bg-surface-container-highest text-xs font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm">sentiment_satisfied</span> Low Competition</button>
     <button id="chip-active" class="filter-chip px-4 py-2 rounded-full bg-surface-container-highest text-xs font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm">bolt</span> Actively Maintained</button>
-    <button id="chip-bookmarked" class="filter-chip px-4 py-2 rounded-full bg-surface-container-highest text-xs font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm icon-fill" style="color:#f59e0b">star</span> Bookmarked</button>
+    <button id="chip-bookmarked" class="filter-chip px-4 py-2 rounded-full bg-surface-container-highest text-xs font-medium hover:bg-primary hover:text-white transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm icon-fill" style="color:#f59e0b">bookmark</span> Bookmarked</button>
   </div>
   <div class="flex flex-wrap gap-2">
     <button class="pill px-3 py-1.5 rounded-full bg-white border border-zinc-200 text-xs font-medium hover:border-primary hover:text-primary transition-colors" data-lang="Python" aria-pressed="false" onclick="togglePill(this)">Python</button>
@@ -799,111 +799,224 @@
 
 <!-- ═══════════════════ WATCHLIST ═══════════════════ -->
 <section id="watchlist" class="bg-surface-container-low py-20 px-6">
-  <div class="max-w-7xl mx-auto">
+
+  <div class="max-w-[1500px] mx-auto">
+
+    <!-- HEADER -->
     <div class="mb-12 flex items-start justify-between gap-4 flex-wrap">
+
       <div>
-        <span class="font-label text-xs font-bold uppercase tracking-[0.2em] text-primary">Scholarly Sandbox</span>
-        <h2 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tighter mt-2">Watchlist.</h2>
-        <p class="text-zinc-600 mt-4 max-w-2xl">Curate your open-source journey. Track organizations, monitor deadlines, and prepare your proposals for GSoC 2026.</p>
+        <span class="font-label text-xs font-bold uppercase tracking-[0.2em] text-primary">
+          Scholarly Sandbox
+        </span>
+
+        <h2 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tighter mt-2">
+          Watchlist<span class="text-primary">.</span>
+        </h2>
+
+        <p class="text-zinc-600 mt-4 max-w-2xl text-lg leading-8">
+          Curate your open-source journey. Track organizations,
+          monitor deadlines, and prepare your proposals for
+          GSoC 2026.
+        </p>
       </div>
-      <button id="clearAllBookmarksBtn"
-        class="hidden mt-8 flex-shrink-0 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-red-500 border border-red-200 rounded-full px-4 py-2 hover:bg-red-50 transition-colors"
-        title="Remove all bookmarks">
-        <span class="material-symbols-outlined text-sm">delete_sweep</span>
+
+      <!-- CLEAR BUTTON -->
+      <button
+        id="clearAllBookmarksBtn"
+        class="hidden mt-4 flex-shrink-0 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-red-500 border border-red-200 rounded-full px-5 py-3 hover:bg-red-50 transition-colors"
+        title="Remove all bookmarks"
+      >
+        <span class="material-symbols-outlined text-sm">
+          delete_sweep
+        </span>
+
         Clear All
       </button>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <div class="lg:col-span-2 space-y-4" id="watchlistContainer">
-        <!-- Watchlist items will be rendered here -->
+
+    <!-- TOP DASHBOARD -->
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+
+      <!-- DEADLINES -->
+      <div class="bg-white rounded-2xl p-6 border border-zinc-100 shadow-sm">
+
+        <!-- HEADER -->
+        <div class="flex items-center justify-between mb-6">
+
+          <h4 class="font-bold flex items-center gap-2 text-zinc-900">
+            <span class="material-symbols-outlined text-primary text-lg">
+              event
+            </span>
+
+            Upcoming Deadlines
+          </h4>
+
+          <button class="text-red-500 text-sm font-semibold hover:underline">
+            View all
+          </button>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="grid md:grid-cols-2 gap-8">
+
+          <!-- ITEM -->
+          <div class="flex gap-4">
+
+            <!-- TIMELINE -->
+            <div class="flex flex-col items-center shrink-0">
+              <div class="w-3 h-3 rounded-full bg-primary mt-1"></div>
+              <div class="w-px flex-1 bg-zinc-200 mt-2"></div>
+            </div>
+
+            <!-- TEXT -->
+            <div>
+              <p class="text-[10px] font-label uppercase tracking-wider text-zinc-400">
+                MAR 31, 2026
+              </p>
+
+              <p class="text-sm font-bold mt-2">
+                Proposal Submission Deadline
+              </p>
+
+              <p class="text-xs text-zinc-500 leading-6 mt-2">
+                Ensure your final proposals are submitted by 18:00 UTC.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="flex gap-4">
+
+            <!-- TIMELINE -->
+            <div class="flex flex-col items-center shrink-0">
+              <div class="w-3 h-3 rounded-full bg-primary mt-1"></div>
+              <div class="w-px flex-1 bg-zinc-200 mt-2"></div>
+            </div>
+
+            <!-- TEXT -->
+            <div>
+              <p class="text-[10px] font-label uppercase tracking-wider text-zinc-400">
+                APR 21, 2026
+              </p>
+
+              <p class="text-sm font-bold mt-2">
+                Review Period Starts
+              </p>
+
+              <p class="text-xs text-zinc-500 leading-6 mt-2">
+                Mentors begin ranking of proposals.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <!-- Sidebar -->
-      <div class="space-y-6">
-        <div class="bg-white rounded-2xl p-6 border border-zinc-100">
-          <h4 class="font-bold mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">event</span> Upcoming Deadlines</h4>
-          <div class="space-y-4">
-            <div><p class="text-[10px] font-label uppercase tracking-wider text-zinc-400">MAR 31, 2026</p><p class="text-sm font-bold">Proposal Submission Deadline</p><p class="text-xs text-zinc-500">Ensure your final proposals are submitted by 18:00 UTC.</p></div>
-            <div><p class="text-[10px] font-label uppercase tracking-wider text-zinc-400">APR 21, 2026</p><p class="text-sm font-bold">Review Period Starts</p><p class="text-xs text-zinc-500">Mentors begin ranking of proposals.</p></div>
+
+      <!-- AI INSIGHT -->
+      <div class="bg-gradient-to-br from-primary to-primary-container text-white rounded-2xl p-6 relative overflow-hidden">
+
+        <!-- ICON -->
+        <div class="absolute top-0 right-0 p-4 opacity-20">
+          <span class="material-symbols-outlined text-5xl">
+            auto_awesome
+          </span>
+        </div>
+
+        <!-- TITLE -->
+        <h4 class="font-bold mb-4 text-white">
+          AI Application Insight
+        </h4>
+
+        <!-- CONTENT -->
+        <div
+          id="aiInsightText"
+          class="space-y-4 text-sm text-orange-100 leading-relaxed"
+        >
+
+          <div class="flex gap-3">
+            <span>🚀</span>
+
+            <p>
+              <span class="font-semibold text-white">
+                Stack Focus:
+              </span>
+
+              Your saved orgs centre on python, javascript,
+              Java.
+            </p>
+          </div>
+
+          <div class="flex gap-3">
+            <span>🧠</span>
+
+            <p>
+              <span class="font-semibold text-white">
+                Domain Strategy:
+              </span>
+
+              Explore contribution tickets before proposal phase.
+            </p>
+          </div>
+
+          <div class="flex gap-3">
+            <span>📈</span>
+
+            <p>
+              Your watchlist contains several high competition orgs.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="mt-5 border-t border-white/20 pt-4">
+          <span class="text-[10px] font-label uppercase tracking-widest text-orange-200">
+            Based on saved orgs • Automated insight
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WATCHLIST GRID -->
+    <div
+      id="watchlistContainer"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full"
+    >
+
+      <!-- DYNAMIC CARDS WILL RENDER HERE -->
+
+      <!-- EMPTY STATE -->
+      <div
+        id="emptyWatchlist"
+        class="hidden xl:col-span-3 md:col-span-2 col-span-1 w-full"
+        style="grid-column: 1 / -1;"
+      >
+
+        <div class="w-full min-w-full min-h-[520px] rounded-[28px] border-2 border-dashed border-zinc-200 bg-white/50">
+
+          <div class="flex min-h-[520px] flex-col items-center justify-center text-center px-6">
+
+            <!-- ICON -->
+            <span class="material-symbols-outlined text-7xl text-zinc-300 mb-6">
+              bookmark
+            </span>
+
+            <!-- TITLE -->
+            <h3 class="text-3xl font-bold tracking-tight text-zinc-700">
+              Your Watchlist is Empty
+            </h3>
+
+            <!-- TEXT -->
+            <p class="mt-4 text-zinc-500 max-w-3xl leading-7">
+              Click the bookmark icon on any organization card to start tracking it here.
+            </p>
+
           </div>
         </div>
-        <div class="bg-gradient-to-br from-primary to-primary-container text-white rounded-2xl p-6 relative overflow-hidden">
-          <div class="absolute top-0 right-0 p-4 opacity-20"><span class="material-symbols-outlined text-5xl">auto_awesome</span></div>
-          <h4 class="font-bold mb-3">AI Application Insight</h4>
-          <p id="aiInsightText" class="text-sm text-orange-100 leading-relaxed mb-4">Select organizations to get personalized contribution advice.</p>
-          <span class="text-[10px] font-label uppercase tracking-widest text-orange-200">Automated System Advice</span>
-        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ═══════════════════ GOOD FIRST ISSUES ═══════════════════ -->
-<section id="issues" class="py-20 px-6 max-w-7xl mx-auto">
-  <div class="mb-12">
-    <span class="font-label text-xs font-bold uppercase tracking-[0.2em] text-primary">First Contributions</span>
-    <h2 class="text-4xl md:text-5xl font-extrabold font-headline tracking-tighter mt-2">Good First Issues</h2>
-    <p class="text-zinc-600 mt-4 max-w-2xl">Pre-fetched from all GSoC 2026 orgs every 6 hours — no rate limits, no token required, instant results.</p>
-  </div>
-  <!-- Status Banner -->
-  <div id="issuesBanner" class="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-    <div class="flex items-center gap-3">
-      <div class="w-3 h-3 rounded-full bg-green-500 pulse-dot" id="issuesBannerDot"></div>
-      <div>
-        <p class="font-bold text-green-800 text-sm" id="issuesBannerTitle">Pre-fetched Issues Ready</p>
-        <p class="text-xs text-green-600" id="issuesBannerSubtitle">Updated every 6 hours via GitHub Actions — no API rate limits for visitors.</p>
-      </div>
-    </div>
-    <div class="ml-auto text-right">
-      <span id="issuesLastUpdated" class="text-xs font-mono text-green-600">Last updated: pending refresh</span>
-      <span id="issuesStaleNote" class="hidden ml-2 text-xs font-medium text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">⏸ GSoC selection complete. Data won't update frequently.</span>
-    </div>
-  </div>
-  <!-- Issue Cards -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="bg-white rounded-xl p-5 border border-zinc-100 hover:shadow-lg transition-all group cursor-pointer issue-fallback-card" data-url="https://github.com/rust-lang/rust/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">
-      <div class="flex items-start justify-between mb-3">
-        <h4 class="font-bold text-sm group-hover:text-primary transition-colors">Browse open Good First Issues</h4>
-        <span class="material-symbols-outlined text-zinc-300 group-hover:text-primary text-lg">open_in_new</span>
-      </div>
-      <p class="text-xs text-zinc-500 mb-3 font-mono">rust-lang/rust</p>
-      <div class="flex flex-wrap gap-1.5">
-        <span class="text-[10px] px-2 py-0.5 bg-green-100 text-green-700 rounded font-bold">GitHub search</span>
-        <span class="text-[10px] px-2 py-0.5 bg-zinc-100 text-zinc-600 rounded">Label: good first issue</span>
-      </div>
-    </div>
-    <div class="bg-white rounded-xl p-5 border border-zinc-100 hover:shadow-lg transition-all group cursor-pointer issue-fallback-card" data-url="https://github.com/django/django/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">
-      <div class="flex items-start justify-between mb-3">
-        <h4 class="font-bold text-sm group-hover:text-primary transition-colors">Browse open Good First Issues</h4>
-        <span class="material-symbols-outlined text-zinc-300 group-hover:text-primary text-lg">open_in_new</span>
-      </div>
-      <p class="text-xs text-zinc-500 mb-3 font-mono">django/django</p>
-      <div class="flex flex-wrap gap-1.5">
-        <span class="text-[10px] px-2 py-0.5 bg-green-100 text-green-700 rounded font-bold">GitHub search</span>
-        <span class="text-[10px] px-2 py-0.5 bg-zinc-100 text-zinc-600 rounded">Label: good first issue</span>
-      </div>
-    </div>
-    <div class="bg-white rounded-xl p-5 border border-zinc-100 hover:shadow-lg transition-all group cursor-pointer issue-fallback-card" data-url="https://github.com/tensorflow/tensorflow/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">
-      <div class="flex items-start justify-between mb-3">
-        <h4 class="font-bold text-sm group-hover:text-primary transition-colors">Browse open Good First Issues</h4>
-        <span class="material-symbols-outlined text-zinc-300 group-hover:text-primary text-lg">open_in_new</span>
-      </div>
-      <p class="text-xs text-zinc-500 mb-3 font-mono">tensorflow/tensorflow</p>
-      <div class="flex flex-wrap gap-1.5">
-        <span class="text-[10px] px-2 py-0.5 bg-green-100 text-green-700 rounded font-bold">GitHub search</span>
-        <span class="text-[10px] px-2 py-0.5 bg-zinc-100 text-zinc-600 rounded">Label: good first issue</span>
-      </div>
-    </div>
-    <div class="bg-white rounded-xl p-5 border border-zinc-100 hover:shadow-lg transition-all group cursor-pointer issue-fallback-card" data-url="https://github.com/kubernetes/kubernetes/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">
-      <div class="flex items-start justify-between mb-3">
-        <h4 class="font-bold text-sm group-hover:text-primary transition-colors">Browse open Good First Issues</h4>
-        <span class="material-symbols-outlined text-zinc-300 group-hover:text-primary text-lg">open_in_new</span>
-      </div>
-      <p class="text-xs text-zinc-500 mb-3 font-mono">kubernetes/kubernetes</p>
-      <div class="flex flex-wrap gap-1.5">
-        <span class="text-[10px] px-2 py-0.5 bg-green-100 text-green-700 rounded font-bold">GitHub search</span>
-        <span class="text-[10px] px-2 py-0.5 bg-zinc-100 text-zinc-600 rounded">Label: good first issue</span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1158,7 +1271,7 @@
       
       <div class="github-stats-container mb-8">
         <button class="gh-fetch" id="mFetchBtn">Fetch Live Stats</button>
-        <div class="gh-stat-item"><span class="material-symbols-outlined text-sm">star</span> <span id="mStars">---</span></div>
+        <div class="gh-stat-item"><span class="material-symbols-outlined text-sm">save</span> <span id="mStars">---</span></div>
         <div class="gh-stat-item"><span class="material-symbols-outlined text-sm">fork_right</span> <span id="mForks">---</span></div>
         <div class="gh-stat-item"><span class="material-symbols-outlined text-sm">bug_report</span> <span id="mIssues">---</span></div>
         <div class="gh-stat-item text-blue-400"><span class="material-symbols-outlined text-sm">history</span> <span id="mActivity">Moderate</span></div>
@@ -2118,8 +2231,16 @@
           <div class="flex items-center gap-2">
             <span class="bg-primary/10 text-primary text-[10px] font-label uppercase tracking-widest px-2 py-1 rounded-full font-bold">${escapeHtml(String(org.years))}y Veteran</span>
             <span class="complexity-badge ${escapeHtml(org.codebase)}">${escapeHtml(org.codebase)}</span>
-            <button class="bookmark-btn ${isBookmarked ? 'active' : 'text-zinc-300'}" data-bookmark-org="${escapeHtml(org.name)}" title="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}">
-              <span class="material-symbols-outlined text-lg ${isBookmarked ? 'icon-fill' : ''}">star</span>
+            <button 
+                  class="bookmark-btn group ${isBookmarked ? 'active text-primary' : 'text-zinc-300'}"
+                  data-bookmark-org="${escapeHtml(org.name)}"
+                  title="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}"
+                  aria-label="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}"
+                  aria-pressed="${isBookmarked ? 'true' : 'false'}"
+                  >
+                <span class="material-symbols-outlined text-lg ${isBookmarked ? 'icon-fill text-primary' : 'text-zinc-300'}" aria-hidden="true">
+                  ${isBookmarked ? 'bookmark' : 'bookmark_border'}
+                </span>
             </button>
           </div>
         </div>
@@ -2337,14 +2458,38 @@
   // ══════════════════════════════════════════════
   function refreshVisibleBookmarkButtons() {
     document.querySelectorAll('#orgGrid .bookmark-btn[data-bookmark-org]').forEach(btn => {
-      const isBookmarked = bookmarkedSet.has(btn.dataset.bookmarkOrg);
-      btn.classList.toggle('active', isBookmarked);
-      btn.classList.toggle('text-zinc-300', !isBookmarked);
-      btn.title = isBookmarked ? 'Remove bookmark' : 'Add bookmark';
-      btn.querySelector('.material-symbols-outlined')?.classList.toggle('icon-fill', isBookmarked);
-    });
-  }
 
+      const isBookmarked = bookmarkedSet.has(btn.dataset.bookmarkOrg);
+
+      btn.classList.toggle('active', isBookmarked);
+      btn.classList.toggle('text-primary', isBookmarked);
+      btn.classList.toggle('text-zinc-300', !isBookmarked);
+
+      btn.title = isBookmarked
+        ? 'Remove bookmark'
+        : 'Add bookmark';
+      btn.setAttribute('aria-label', isBookmarked ? 'Remove bookmark' : 'Add bookmark');
+      btn.setAttribute('aria-pressed', isBookmarked ? 'true' : 'false');
+
+      const icon = btn.querySelector('.material-symbols-outlined');
+
+      if (icon) {
+        icon.setAttribute('aria-hidden', 'true');
+
+        // change icon name
+        icon.textContent = isBookmarked
+          ? 'bookmark'
+          : 'bookmark_border';
+
+        // filled style
+        icon.classList.toggle('icon-fill', isBookmarked);
+
+        // colors
+        icon.classList.toggle('text-primary', isBookmarked);
+        icon.classList.toggle('text-zinc-300', !isBookmarked);
+      }
+    });
+}
   function refreshOrgGridAfterBookmarkChange() {
     if (activeChip === 'bookmarked') {
       applyFiltersPreservingVisibleCount();
@@ -2421,10 +2566,16 @@
     // ── Empty state ───────────────────────────────────────────────────────────
     if (bookmarks.length === 0) {
       container.innerHTML = `
-        <div class="py-16 text-center border-2 border-dashed border-zinc-200 rounded-2xl">
-          <span class="material-symbols-outlined text-4xl text-zinc-300 mb-4 block">bookmark_border</span>
-          <p class="font-bold text-zinc-500 mb-1">Your Watchlist is Empty</p>
-          <p class="text-sm text-zinc-400">Click the ★ on any organization card to start tracking it here.</p>
+        <div class="col-span-full xl:col-span-3 md:col-span-2 w-full min-h-[220px] flex flex-col items-center justify-center text-center border-2 border-dashed border-zinc-200 rounded-[28px] bg-white/50 px-6 py-24">
+          <span class="material-symbols-outlined text-7xl text-zinc-300 mb-6">
+            bookmark_border
+          </span>
+          <p class="text-3xl font-bold tracking-tight text-zinc-700 mb-3">
+          Your Watchlist is Empty
+          </p>
+          <p class="text-base text-zinc-500 leading-7 max-w-2xl mx-auto">
+            Click the bookmark icon on any organization card to start tracking it here.
+          </p>
         </div>`;
       return;
     }
@@ -2482,7 +2633,10 @@
             <h4 class="font-bold text-zinc-900 leading-tight">${escapeHtml(org.name)}</h4>
             <div class="flex items-center gap-2 flex-shrink-0">
               <span class="text-[10px] font-label font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${catClass}">${escapeHtml(catLabel)}</span>
-              <span class="text-[10px] font-label font-bold uppercase tracking-wider text-white bg-primary px-2 py-0.5 rounded-full">★ Saved</span>
+              <span class="text-[10px] font-label font-bold uppercase tracking-wider text-white bg-primary px-2 py-0.5 rounded-full inline-flex items-center gap-1">
+                <span class="material-symbols-outlined text-[12px] icon-fill">bookmark</span>
+                Saved
+              </span>
             </div>
           </div>
           <p class="text-sm text-zinc-500 mb-3 line-clamp-1">${escapeHtml(org.desc || '')}</p>

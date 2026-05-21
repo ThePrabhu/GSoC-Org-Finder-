@@ -63,11 +63,24 @@ function handleBookmarkAction(e, btn) {
     // Dynamically verify authoritative memory to correctly manage layout class topology
     const isNowBookmarked = (globalThis.bookmarkedSet || new Set()).has(name);
     btn.classList.toggle('active', isNowBookmarked);
-    btn.classList.toggle('text-orange-500', isNowBookmarked);
+    btn.classList.toggle('text-primary', isNowBookmarked);
     btn.classList.toggle('text-zinc-300', !isNowBookmarked);
-    
+    btn.title = isNowBookmarked ? 'Remove bookmark' : 'Add bookmark';
+    btn.setAttribute('aria-label', isNowBookmarked ? 'Remove bookmark' : 'Add bookmark');
+    btn.setAttribute('aria-pressed', isNowBookmarked ? 'true' : 'false');
+
     const icon = btn.querySelector('.material-symbols-outlined');
-    if (icon) icon.classList.toggle('icon-fill', isNowBookmarked);
+
+    if (icon) {
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = isNowBookmarked
+        ? 'bookmark'
+        : 'bookmark_border';
+
+      icon.classList.toggle('icon-fill', isNowBookmarked);
+      icon.classList.toggle('text-primary', isNowBookmarked);
+      icon.classList.toggle('text-zinc-300', !isNowBookmarked);
+    }
   }
 }
 
@@ -250,10 +263,12 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           
           <div class="flex items-center gap-2 mt-2">
-             <button class="bookmark-btn ${isBookmarked ? 'active text-orange-500' : 'text-zinc-300'}" 
+             <button class="bookmark-btn ${isBookmarked ? 'active text-primary' : 'text-zinc-300'}" 
                      data-bookmark-org="${safeEscapeHtml(o.name)}" 
-                     title="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}">
-                <span class="material-symbols-outlined text-xl ${isBookmarked ? 'icon-fill' : ''}">star</span>
+                     title="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}"
+                     aria-label="${isBookmarked ? 'Remove bookmark' : 'Add bookmark'}"
+                     aria-pressed="${isBookmarked ? 'true' : 'false'}">
+                <span class="material-symbols-outlined text-xl ${isBookmarked ? 'icon-fill text-primary' : 'text-zinc-300'}" aria-hidden="true">${isBookmarked ? 'bookmark' : 'bookmark_border'}</span>
              </button>
           </div>
         </div>
