@@ -16,6 +16,8 @@ function getRecommendations(resumeSkills = [], githubProfile = null) {
   }
 
   const normalize = globalThis.normalizeSkill || (s => s);
+
+  // Combine skills to form a unified user profile
   const userLanguages = new Set();
   const userTopics = new Set();
 

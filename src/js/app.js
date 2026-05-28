@@ -953,7 +953,7 @@ globalThis.togglePill = togglePill;
 
 globalThis.renderSelectedLanguages = renderSelectedLanguages;
 function renderSelectedLanguages(){
-  const container=document.getElementById('selectedLangsStrip');
+  const container=document.getElementById('selectedLangsStripMain');
   if(!container)return;
 
   if(pills.size===0){
@@ -1361,7 +1361,7 @@ updateStats();
 renderSelectedLanguages();
 
 // Initialize match mode toggle listener
-document.getElementById('matchAllLanguagesToggle')?.addEventListener('change', (e) => {
+document.getElementById('matchAllLanguagesToggleMain')?.addEventListener('change', (e) => {
   matchAllLanguages = e.target.checked;
   applyFilters();
 });
